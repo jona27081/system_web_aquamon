@@ -1,0 +1,117 @@
+.centered-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: -1%;
+    left: 0;
+    z-index: 1;
+    color: black;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-container {
+    color: white;
+    width: 380px;
+    background-color: rgba(255, 255, 255, 0.500);
+    display: flex;
+    margin: 1px;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+input[type='checkbox'] {
+    accent-color: rgb(5, 211, 183);
+    width: 15px;
+    height: 15px;
+    z-index: 9999;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.type {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    align-items: center;
+    color: black;
+}
+
+button {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    background-color: rgb(5, 211, 183);
+    color: rgba(0, 0, 0, 0.699);
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+
+button:hover {
+    background-color: rgb(8, 204, 178);
+}
+
+button:active {
+    background-color: rgb(45, 241, 215);
+}
+
+.permissions-container-registro {
+    margin-top: 1px;
+}
+
+.permissions-registro {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.permission-registro {
+    display: flex;
+    align-items: center;
+}
+
+h3{
+    color: black;
+}
+
+h2{
+    color: black;
+}
+
+label{
+    color: black;
+    margin: 5px;
+}
+
+.l{
+    font-size: 5px;
+    margin: 0%;
+    padding: 0%;
+}
