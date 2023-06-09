@@ -12,11 +12,11 @@ const Menu = () => {
             <div className="background"></div>
             <div className="menu">
                 <nav>
-                    <a href="/personalemps" style={{ animationDelay: '0.2s' }}>Empleados</a>
-                    <a href="/personaladms" style={{ animationDelay: '0.3s' }}>Administradores</a>
-                    <a href="/addpersonal" style={{ animationDelay: '0.4s' }}>Registrar Personal</a>
-                    <a href="/addwaterpump" style={{ animationDelay: '0.5s' }}>Registrar Bomba</a>
-                    <a href="/" style={{ animationDelay: '0.6s' }}>Bombas</a>
+                    <Link to={"/personalemps"} style={{ animationDelay: '0.2s' }}>Empleados</Link>
+                    <Link to={"/personaladms"} style={{ animationDelay: '0.3s' }}>Administradores</Link>
+                    <Link to={"/addpersonal"} style={{ animationDelay: '0.4s' }}>Registrar Personal</Link>
+                    <Link to={"/addwaterpump"} style={{ animationDelay: '0.5s' }}>Registrar Bomba</Link>
+                    <Link to={"/"} style={{ animationDelay: '0.6s' }}>Bombas</Link>
                 </nav>
             </div>
         </span>
