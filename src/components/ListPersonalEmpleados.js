@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../styles/ListWaterPumps.css";
 import { getPersonal, deletePersonal } from "../services/Personal.service"
 import Actualizar from './Actualizar';
+import { useNavigate } from 'react-router-dom';
 
 const ListPersonalEmpleados = () => {
     const [showPopup, setShowPopup] = useState(false);
@@ -9,6 +10,7 @@ const ListPersonalEmpleados = () => {
     const [showPopupUpdate, setShowPopupUpdate] = useState(false);
     const [personal, setPersonal] = useState([]);
     const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
+    const navigate = useNavigate();
 
     const handleShowPopup = (employeeId) => {
         setSelectedEmployeeId(employeeId);
@@ -37,11 +39,13 @@ const ListPersonalEmpleados = () => {
 
         try {
             console.log(employeeId)
-            await deletePersonal("employees", selectedEmployeeId);
+            await deletePersonal("employees", employeeId);
             setShowPopupDelete(false);
-            window.location.reload();
+            alert("Personal eliminado: ", employeeId)
+            navigate("/");
         } catch (error) {
             console.error(error);
+            alert("Personal no pudo ser eliminado: ", error.message)
         }
 
     };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../styles/Registro.css";
 import getPermissions from "../services/Permissions.service";
 import {postPersonal} from '../services/Personal.service';
+import { useNavigate } from 'react-router-dom';
 
 const Registro = () => {
   const [permissions, setPermissions] = useState([]);
@@ -11,9 +12,7 @@ const Registro = () => {
   const [seleccionado, setSeleccionado] = useState(false);
   const [is, setIs] = useState("");
   const [permissionsAssignment, setPermissionsAssignment] = useState([]);
-  
-  
-
+  const navigate = useNavigate();
 
   const handleCheckboxChange = (event) => {
     setSeleccionado(event.target.checked);
@@ -62,8 +61,11 @@ const Registro = () => {
     try {
       const response = await postPersonal(is, Personal);
       console.log(response)
+      alert("Personal agregado: ", Personal.name);
+      navigate("/");
     } catch (error) {
       console.error(error)
+      alert("Personal no pudo ser agregado: ", error.message);
     }
 
     

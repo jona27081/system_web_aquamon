@@ -32,9 +32,11 @@ const RegistroWaterPumps = () => {
     try {
       const response = await postWaterPumps(WaterPump);
       console.log(response)
+      alert("Bomba agregada: ", WaterPump.name);
       navigate('/');
     } catch (error) {
       console.error(error)
+      alert("Bomba no pudo ser agregada verifique el numero de empleado")
     }
 
   };

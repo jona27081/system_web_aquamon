@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../styles/ListWaterPumps.css";
 import ActualizarWaterPump from './ActualizarWaterPump';
 import { deleteWaterPumps, getWaterPumps, getLogs } from '../services/WaterPumps.service';
+import { useNavigate } from 'react-router-dom';
 
 const ListWaterPumps = () => {
     const [showPopup, setShowPopup] = useState(false);
@@ -10,6 +11,7 @@ const ListWaterPumps = () => {
     const [waterPumps, setWaterPumps] = useState([]);
     const [selectedWaterPumpId, setSelectedWaterPumpId] = useState(null);
     const [waterLogs, setWaterLogs] = useState([]);
+    const navigate = useNavigate();
 
     const handleShowPopup = async (waterPumpId) => {
         setSelectedWaterPumpId(waterPumpId);
@@ -48,9 +50,11 @@ const ListWaterPumps = () => {
             console.log(waterPumpId)
             await deleteWaterPumps(waterPumpId);
             setShowPopupDelete(false);
-            window.location.reload();
+            alert("Bomba eliminada: ", waterPumpId)
+            navigate("/");
         } catch (error) {
             console.error(error);
+            alert("Bomba no pudo ser eliminada: ", error.message)
         }
 
     };

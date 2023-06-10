@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import "../styles/Actualizar.css";
 import { updateWaterPump } from '../services/WaterPumps.service';
+import { useNavigate } from 'react-router-dom';
 
 const Actualizar = ({idForUpdate, onCancel }) => {
   const [enabled, setEnabled] = useState('');
@@ -8,6 +9,7 @@ const Actualizar = ({idForUpdate, onCancel }) => {
   const [location, setLocation] = useState('');
   const [assignment, setAssignment] = useState('');
   const [seleccionado, setSeleccionado] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -40,9 +42,11 @@ const Actualizar = ({idForUpdate, onCancel }) => {
     try {
       const response = await updateWaterPump(idForUpdate, WaterPump);
       console.log(response)
-      window.location.reload()
+      alert("Bomba actualizada: ", idForUpdate)
+      navigate("/");
     } catch (error) {
       console.error(error)
+      alert("Bomba no actualizada", error.message);
     }
 
   };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../styles/Actualizar.css";
 import getPermissions from "../services/Permissions.service";
 import { updatePersonal } from '../services/Personal.service';
+import { useNavigate } from 'react-router-dom';
 
 const Actualizar = ({ type, idForUpdate, onCancel}) => {
   const [permissions, setPermissions] = useState([]);
@@ -9,6 +10,7 @@ const Actualizar = ({ type, idForUpdate, onCancel}) => {
   const [active, setActive] = useState('');
   const [seleccionado, setSeleccionado] = useState(false);
   const [newPermissionsAssignment, setNewPermissionsAssignment] = useState([]);
+  const navigate = useNavigate();
 
   const handleCheckboxChange = (event) => {
     setSeleccionado(event.target.checked);
@@ -51,9 +53,11 @@ const Actualizar = ({ type, idForUpdate, onCancel}) => {
       console.log(idForUpdate)
       const response = await updatePersonal(type, idForUpdate, updateDataPersonal);
       console.log(response)
-      window.location.reload()
+      alert("Personal actualizado: ", idForUpdate)
+      navigate("/");
     } catch (error) {
       console.error(error)
+      alert("Personal no actualizado: ", error.message);
     }
   };
 
